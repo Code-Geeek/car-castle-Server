@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // registration of user
 
 exports.registerVehicle = async (req, res) => {
-  console.log("inside userController register function");
+  console.log("inside vehicle register controller");
   const { image,modelname, regnumber, color, mode, engine,amount,vehicletype} = req.body;
   try {
     const existingVehicle = await vehicles.findOne({ regnumber });
@@ -30,3 +30,13 @@ exports.registerVehicle = async (req, res) => {
   }
 };
 
+// get all vehicles
+
+exports.vehicleDetails = async (req, res) => {
+  try {
+    const allvehicleDetails = await vehicles.find();
+    res.status(200).json(allvehicleDetails);
+  } catch (err) {
+    res.status(401).json(err);
+  }
+};

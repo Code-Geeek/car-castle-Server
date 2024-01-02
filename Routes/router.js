@@ -12,5 +12,7 @@ router.post("/register", userController.register);
 // register vehicle
 router.post("/register/vehicle", vehicleController.registerVehicle);
 
+// get vehicle details
+router.get("/view/vehicles", vehicleController.vehicleDetails);
 
 module.exports = router;
